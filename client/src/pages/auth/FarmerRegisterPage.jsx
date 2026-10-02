@@ -125,6 +125,7 @@ export const FarmerRegisterPage = () => {
     setLoading(true);
 
     try {
+      const fullPhone = `${formData.countryCode} ${formData.phone}`.trim();
       const result = await authService.registerFarmer({
         email: formData.email.trim(),
         password: formData.password,
