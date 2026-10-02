@@ -13,6 +13,8 @@ if (isSmtpConfigured) {
       user: env.EMAIL_USER,
       pass: env.EMAIL_PASS,
     },
+    // Force IPv4 — Render free tier does NOT support IPv6 outbound
+    family: 4,
     // Timeouts to prevent indefinite hangs on cloud environments
     connectionTimeout: 10000,   // 10s to establish connection
     greetingTimeout: 8000,      // 8s for SMTP greeting
