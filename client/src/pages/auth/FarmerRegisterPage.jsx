@@ -20,7 +20,7 @@ import { useLanguage } from '../../context/LanguageContext';
 export const FarmerRegisterPage = () => {
   const { t } = useTranslation(['auth']);
   const navigate = useNavigate();
-  const { setSessionProfile } = useAuth();
+  const { setSessionProfile, signIn } = useAuth();
   const { currentLanguage } = useLanguage();
 
   const [step, setStep] = useState(1);
@@ -125,8 +125,7 @@ export const FarmerRegisterPage = () => {
     setLoading(true);
 
     try {
-      const fullPhone = `${formData.countryCode} ${formData.phone}`;
-      const { user, profile } = await authService.registerFarmer({
+      const result = await authService.registerFarmer({
         email: formData.email.trim(),
         password: formData.password,
         firstName: formData.firstName.trim(),
@@ -143,8 +142,16 @@ export const FarmerRegisterPage = () => {
         preferredLanguage: currentLanguage,
       });
 
-      if (user && profile) {
-        setSessionProfile(user, profile);
+      const user = result?.user;
+      const profile = result?.profile;
+
+      // Initialize Supabase session with credentials
+      try {
+        await signIn(formData.email.trim(), formData.password);
+      } catch (signInErr) {
+        if (user && profile) {
+          setSessionProfile(user, profile);
+        }
       }
       setIsSuccess(true);
     } catch (err) {

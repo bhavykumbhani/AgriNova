@@ -211,6 +211,13 @@ export const AuthProvider = ({ children }) => {
     });
   };
 
+  // Explicitly update session profile state upon registration
+  const setSessionProfile = (newUser, newProfile) => {
+    setUser(newUser);
+    setProfile(newProfile);
+    setRole(newProfile?.role || 'farmer');
+  };
+
   const value = {
     user,
     session,
@@ -223,6 +230,7 @@ export const AuthProvider = ({ children }) => {
     sendEmailOtp,
     verifyEmailOtp,
     resetPassword,
+    setSessionProfile,
     refreshProfile: () => (user ? fetchProfile(user.id) : Promise.resolve(null)),
   };
 

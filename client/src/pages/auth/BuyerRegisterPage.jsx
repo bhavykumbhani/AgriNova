@@ -32,7 +32,7 @@ const BUSINESS_TYPES = [
 export const BuyerRegisterPage = () => {
   const { t } = useTranslation(['auth']);
   const navigate = useNavigate();
-  const { setSessionProfile } = useAuth();
+  const { setSessionProfile, signIn } = useAuth();
   const { currentLanguage } = useLanguage();
 
   const [step, setStep] = useState(1);
@@ -124,7 +124,7 @@ export const BuyerRegisterPage = () => {
         formData.businessType === 'Other' ? formData.customBusinessType.trim() : formData.businessType;
       const fullPhone = `${formData.countryCode} ${formData.phone}`;
 
-      const { user, profile } = await authService.registerBuyer({
+      const result = await authService.registerBuyer({
         email: formData.email.trim(),
         password: formData.password,
         firstName: formData.firstName.trim(),
@@ -139,8 +139,16 @@ export const BuyerRegisterPage = () => {
         preferredLanguage: currentLanguage,
       });
 
-      if (user && profile) {
-        setSessionProfile(user, profile);
+      const user = result?.user;
+      const profile = result?.profile;
+
+      // Initialize Supabase session with credentials
+      try {
+        await signIn(formData.email.trim(), formData.password);
+      } catch (signInErr) {
+        if (user && profile) {
+          setSessionProfile(user, profile);
+        }
       }
       setIsSuccess(true);
     } catch (err) {
