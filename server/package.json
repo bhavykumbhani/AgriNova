@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "build": "echo 'No build step needed for Node Express server'",
     "dev": "node --watch server.js"
   },
   "dependencies": {
