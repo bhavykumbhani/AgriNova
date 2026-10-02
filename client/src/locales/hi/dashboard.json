@@ -1,0 +1,21 @@
+{
+  "goodMorning": "शुभ प्रभात",
+  "goodAfternoon": "शुभ दोपहर",
+  "goodEvening": "शुभ संध्या",
+  "subtitle": "यहाँ आपके खेत और बाज़ार की गतिविधियों का विवरण है।",
+  "totalRevenue": "कुल राजस्व",
+  "productsListed": "सूचीबद्ध फसलें",
+  "completedOrders": "पूर्ण आदेश",
+  "activeBuyers": "सक्रिय खरीदार",
+  "activeOrders": "सक्रिय आदेश",
+  "savedProducts": "सहेजे गए उत्पाद",
+  "farmersConnected": "जुड़े हुए किसान",
+  "revenueAnalytics": "राजस्व विश्लेषण",
+  "farmWeather": "खेत का मौसम",
+  "recentOrders": "हाल के आदेश",
+  "recentMessages": "हाल के संदेश",
+  "viewAll": "सभी आदेश देखें",
+  "listNewCrop": "नई फसल जोड़ें",
+  "noOrdersYet": "अभी कोई आदेश नहीं है",
+  "noProductsYet": "आपने अभी तक कोई फसल सूचीबद्ध नहीं की है।"
+}

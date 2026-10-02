@@ -43,19 +43,25 @@ export const LoginPage = () => {
       const res = await signIn(email.trim(), password);
 
       if (res?.error) {
-        setErrorMessage(res.error.message || 'Invalid email or password. Please verify credentials.');
+        setErrorMessage(res.error.message || 'Invalid email or password.');
         return;
       }
 
-      // Check role from returned profile
-      const userRole = res?.data?.profile?.role || (email.includes('buyer') ? 'buyer' : 'farmer');
-      const targetPath =
-        location.state?.from?.pathname ||
-        (userRole === 'buyer' ? '/buyer/dashboard' : '/farmer/dashboard');
+      if (!res?.data?.profile?.role) {
+        setErrorMessage('Account verified, but no active role profile found. Please register or contact support.');
+        return;
+      }
+
+      // Valid real authenticated user and profile
+      const userRole = res.data.profile.role;
+      let targetPath = location.state?.from?.pathname;
+      if (!targetPath || targetPath === '/login' || targetPath === '/') {
+        targetPath = userRole === 'buyer' ? '/buyer/dashboard' : '/farmer/dashboard';
+      }
 
       navigate(targetPath, { replace: true });
     } catch (err) {
-      setErrorMessage(err.message || 'An unexpected error occurred during sign in. Please try again.');
+      setErrorMessage(err.message || 'Invalid email or password.');
     } finally {
       setLoading(false);
     }

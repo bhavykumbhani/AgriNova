@@ -14,9 +14,7 @@ const requireAuth = async (req, res, next) => {
     const token = authHeader.split(' ')[1];
 
     if (!isConfigured) {
-      // In mock development mode, attach demo user
-      req.user = { id: 'mock-user-id', email: 'demo@agrinova.in', role: 'farmer' };
-      return next();
+      return error(res, 'Authentication service is not properly configured.', 503);
     }
 
     const { data: { user }, error: authError } = await supabase.auth.getUser(token);
@@ -25,10 +23,25 @@ const requireAuth = async (req, res, next) => {
       return error(res, 'Invalid or expired authentication token', 401);
     }
 
+    // Query user profile from profiles table
+    const { data: profile, error: profileError } = await supabase
+      .from('profiles')
+      .select('*, farmer_profiles(*), buyer_profiles(*)')
+      .eq('auth_user_id', user.id)
+      .single();
+
+    if (profileError || !profile) {
+      return error(res, 'User profile not found. Please complete registration.', 403);
+    }
+
     req.user = user;
+    req.profile = profile;
+    req.farmerProfile = profile.farmer_profiles?.[0] || profile.farmer_profiles || null;
+    req.buyerProfile = profile.buyer_profiles?.[0] || profile.buyer_profiles || null;
+
     return next();
   } catch (err) {
-    return error(res, 'Authentication verification failed', 500);
+    return error(res, 'Authentication verification failed: ' + (err.message || ''), 500);
   }
 };
 
@@ -37,10 +50,10 @@ const requireAuth = async (req, res, next) => {
  */
 const requireRole = (allowedRoles = []) => {
   return (req, res, next) => {
-    if (!req.user) {
+    if (!req.profile) {
       return error(res, 'Unauthorized access', 401);
     }
-    const userRole = req.user.user_metadata?.role || req.user.role || 'farmer';
+    const userRole = req.profile.role;
     if (!allowedRoles.includes(userRole)) {
       return error(res, `Forbidden: Requires one of [${allowedRoles.join(', ')}] roles`, 403);
     }

@@ -1,0 +1,21 @@
+{
+  "goodMorning": "Good Morning",
+  "goodAfternoon": "Good Afternoon",
+  "goodEvening": "Good Evening",
+  "subtitle": "Here's what's happening with your farm and marketplace activity.",
+  "totalRevenue": "Total Revenue",
+  "productsListed": "Products Listed",
+  "completedOrders": "Completed Orders",
+  "activeBuyers": "Active Buyers",
+  "activeOrders": "Active Orders",
+  "savedProducts": "Saved Products",
+  "farmersConnected": "Farmers Connected",
+  "revenueAnalytics": "Revenue Analytics",
+  "farmWeather": "Farm Weather",
+  "recentOrders": "Recent Orders",
+  "recentMessages": "Recent Messages",
+  "viewAll": "View All Orders",
+  "listNewCrop": "List New Crop",
+  "noOrdersYet": "No orders yet",
+  "noProductsYet": "You haven't listed any crops yet."
+}

@@ -13,6 +13,7 @@ import enContact from './locales/en/contact.json';
 import enFaq from './locales/en/faq.json';
 import enFarmingTips from './locales/en/farmingTips.json';
 import enLegal from './locales/en/legal.json';
+import enDashboard from './locales/en/dashboard.json';
 
 // Hindi translations
 import hiCommon from './locales/hi/common.json';
@@ -26,6 +27,7 @@ import hiContact from './locales/hi/contact.json';
 import hiFaq from './locales/hi/faq.json';
 import hiFarmingTips from './locales/hi/farmingTips.json';
 import hiLegal from './locales/hi/legal.json';
+import hiDashboard from './locales/hi/dashboard.json';
 
 // Gujarati translations
 import guCommon from './locales/gu/common.json';
@@ -39,6 +41,7 @@ import guContact from './locales/gu/contact.json';
 import guFaq from './locales/gu/faq.json';
 import guFarmingTips from './locales/gu/farmingTips.json';
 import guLegal from './locales/gu/legal.json';
+import guDashboard from './locales/gu/dashboard.json';
 
 const savedLang = typeof window !== 'undefined' ? localStorage.getItem('agrinova_language') || 'en' : 'en';
 
@@ -58,6 +61,7 @@ i18n
         faq: enFaq,
         farmingTips: enFarmingTips,
         legal: enLegal,
+        dashboard: enDashboard,
       },
       hi: {
         common: hiCommon,
@@ -71,6 +75,7 @@ i18n
         faq: hiFaq,
         farmingTips: hiFarmingTips,
         legal: hiLegal,
+        dashboard: hiDashboard,
       },
       gu: {
         common: guCommon,
@@ -84,6 +89,7 @@ i18n
         faq: guFaq,
         farmingTips: guFarmingTips,
         legal: guLegal,
+        dashboard: guDashboard,
       },
     },
     lng: savedLang,

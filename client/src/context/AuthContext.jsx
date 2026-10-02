@@ -6,103 +6,100 @@ const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [session, setSession] = useState(null);
   const [profile, setProfile] = useState(null);
   const [role, setRole] = useState(null); // 'farmer' | 'buyer' | 'admin' | null
   const [loading, setLoading] = useState(true);
 
-  // Fetch application profile from public.profiles table
+  // Fetch application profile from public.profiles table using auth_user_id
   const fetchProfile = useCallback(async (authUserId) => {
-    if (!authUserId) {
+    if (!authUserId || !isSupabaseConfigured) {
       setProfile(null);
       setRole(null);
       return null;
     }
 
-    if (isSupabaseConfigured) {
-      try {
-        const { data, error } = await supabase
-          .from('profiles')
-          .select('*')
-          .eq('auth_user_id', authUserId)
-          .single();
+    try {
+      const { data, error } = await supabase
+        .from('profiles')
+        .select(`
+          *,
+          farmer_profiles (*),
+          buyer_profiles (*)
+        `)
+        .eq('auth_user_id', authUserId)
+        .maybeSingle();
 
-        if (!error && data) {
-          setProfile(data);
-          setRole(data.role);
-          return data;
-        }
-      } catch (err) {
-        console.warn('Profile fetch notice:', err.message);
+      if (error) {
+        console.warn('[AuthContext] Error fetching profile:', error.message);
+        return null;
       }
-    }
 
-    // Local state fallback if profile record is being established
-    const cachedProfile = localStorage.getItem('agrinova_session_profile');
-    if (cachedProfile) {
-      try {
-        const parsed = JSON.parse(cachedProfile);
-        setProfile(parsed);
-        setRole(parsed.role);
-        return parsed;
-      } catch {
-        // invalid JSON
+      if (data) {
+        setProfile(data);
+        setRole(data.role);
+        return data;
       }
+    } catch (err) {
+      console.warn('[AuthContext] Profile fetch exception:', err.message);
     }
     return null;
   }, []);
 
-  // Initialize auth state
+  // Initialize and restore auth session on application load
   useEffect(() => {
     let mounted = true;
 
     const initAuth = async () => {
-      if (isSupabaseConfigured) {
-        try {
-          const { data: { session } } = await supabase.auth.getSession();
-          if (mounted && session?.user) {
-            setUser(session.user);
-            await fetchProfile(session.user.id);
-          }
-        } catch (e) {
-          console.warn('Auth session check notice:', e.message);
-        } finally {
-          if (mounted) setLoading(false);
-        }
-
-        const { data: { subscription } } = supabase.auth.onAuthStateChange(
-          async (_event, session) => {
-            if (mounted) {
-              const currentUser = session?.user ?? null;
-              setUser(currentUser);
-              if (currentUser) {
-                await fetchProfile(currentUser.id);
-              } else {
-                setProfile(null);
-                setRole(null);
-                localStorage.removeItem('agrinova_session_profile');
-              }
-              setLoading(false);
-            }
-          }
-        );
-
-        return () => subscription.unsubscribe();
-      } else {
-        // Fallback for initial development mode
-        const cachedUser = localStorage.getItem('agrinova_session_user');
-        const cachedProfile = localStorage.getItem('agrinova_session_profile');
-        if (cachedUser && cachedProfile) {
-          try {
-            setUser(JSON.parse(cachedUser));
-            const p = JSON.parse(cachedProfile);
-            setProfile(p);
-            setRole(p.role);
-          } catch {
-            // ignore
-          }
-        }
-        setLoading(false);
+      if (!isSupabaseConfigured) {
+        if (mounted) setLoading(false);
+        return;
       }
+
+      try {
+        const { data: { session: currentSession }, error: sessionError } = await supabase.auth.getSession();
+        
+        if (sessionError) {
+          console.warn('[AuthContext] Session retrieval error:', sessionError.message);
+        }
+
+        if (mounted && currentSession?.user) {
+          setSession(currentSession);
+          setUser(currentSession.user);
+          await fetchProfile(currentSession.user.id);
+        }
+      } catch (err) {
+        console.warn('[AuthContext] Auth initialization error:', err.message);
+      } finally {
+        if (mounted) setLoading(false);
+      }
+
+      // Listen for real Supabase auth state changes
+      const { data: { subscription } } = supabase.auth.onAuthStateChange(
+        async (event, newSession) => {
+          if (!mounted) return;
+
+          if (event === 'SIGNED_OUT' || !newSession) {
+            setSession(null);
+            setUser(null);
+            setProfile(null);
+            setRole(null);
+            setLoading(false);
+            return;
+          }
+
+          if (newSession?.user) {
+            setSession(newSession);
+            setUser(newSession.user);
+            await fetchProfile(newSession.user.id);
+            setLoading(false);
+          }
+        }
+      );
+
+      return () => {
+        subscription.unsubscribe();
+      };
     };
 
     initAuth();
@@ -112,82 +109,86 @@ export const AuthProvider = ({ children }) => {
     };
   }, [fetchProfile]);
 
-  // Sign In with email and password
+  // Real Supabase Sign In with email and password
   const signIn = async (email, password) => {
     const cleanEmail = email.toLowerCase().trim();
 
+    if (!cleanEmail || !password) {
+      return { data: null, error: new Error('Please enter both your email address and password.') };
+    }
+
     if (!isSupabaseConfigured) {
-      // Check for saved user from registration
-      let matchedUser = null;
-      let matchedProfile = null;
-
-      try {
-        const storedUsersRaw = localStorage.getItem('agrinova_registered_users');
-        const registeredUsers = storedUsersRaw ? JSON.parse(storedUsersRaw) : {};
-        if (registeredUsers[cleanEmail]) {
-          matchedUser = registeredUsers[cleanEmail].user;
-          matchedProfile = registeredUsers[cleanEmail].profile;
-        }
-      } catch (e) {}
-
-      // Fallback check in last session profile
-      if (!matchedProfile) {
-        try {
-          const lastProfile = JSON.parse(localStorage.getItem('agrinova_session_profile') || '{}');
-          if (lastProfile.email && lastProfile.email.toLowerCase() === cleanEmail) {
-            matchedProfile = lastProfile;
-          }
-        } catch (e) {}
-      }
-
-      const userRole = matchedProfile?.role || (cleanEmail.includes('buyer') ? 'buyer' : 'farmer');
-      const activeUser = matchedUser || {
-        id: matchedProfile?.auth_user_id || `usr_${Date.now()}`,
-        email: cleanEmail,
+      return { 
+        data: null, 
+        error: new Error('Authentication service is currently unavailable. Supabase credentials must be configured.') 
       };
-      const activeProfile = matchedProfile || {
-        id: `prof_${Date.now()}`,
-        auth_user_id: activeUser.id,
-        role: userRole,
-        first_name: userRole === 'buyer' ? 'Business' : 'Farmer',
-        last_name: 'Member',
-        email: cleanEmail,
-      };
-
-      setUser(activeUser);
-      setProfile(activeProfile);
-      setRole(activeProfile.role || userRole);
-      localStorage.setItem('agrinova_session_user', JSON.stringify(activeUser));
-      localStorage.setItem('agrinova_session_profile', JSON.stringify(activeProfile));
-
-      return { data: { user: activeUser, profile: activeProfile }, error: null };
     }
 
     try {
-      const res = await supabase.auth.signInWithPassword({ email: cleanEmail, password });
-      if (res.error) return res;
+      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+        email: cleanEmail,
+        password,
+      });
 
-      if (res.data?.user) {
-        const userProfile = await fetchProfile(res.data.user.id);
-        return { data: { user: res.data.user, profile: userProfile }, error: null };
+      if (authError) {
+        let friendlyMessage = 'Invalid email or password.';
+        if (authError.message.includes('Invalid login credentials')) {
+          friendlyMessage = 'Invalid email or password.';
+        } else if (authError.message.includes('Email not confirmed')) {
+          friendlyMessage = 'Please verify your email address before signing in.';
+        } else {
+          friendlyMessage = authError.message;
+        }
+        return { data: null, error: new Error(friendlyMessage) };
       }
-      return res;
+
+      if (!authData?.user) {
+        return { data: null, error: new Error('Invalid email or password.') };
+      }
+
+      // Authenticated successfully: retrieve the real profile
+      const userProfile = await fetchProfile(authData.user.id);
+      
+      setUser(authData.user);
+      setSession(authData.session);
+
+      if (!userProfile) {
+        return {
+          data: { user: authData.user, profile: null },
+          error: new Error('User profile not found. Please complete your registration.'),
+        };
+      }
+
+      return {
+        data: {
+          user: authData.user,
+          session: authData.session,
+          profile: userProfile,
+          role: userProfile.role,
+        },
+        error: null,
+      };
     } catch (err) {
-      console.warn('Supabase sign in failed:', err.message);
-      return { data: null, error: err };
+      return { data: null, error: new Error(err.message || 'Authentication failed. Please try again.') };
     }
   };
 
-  // Sign Out
+  // Real Supabase Sign Out
   const signOut = async () => {
-    if (isSupabaseConfigured) {
-      await supabase.auth.signOut();
+    try {
+      if (isSupabaseConfigured) {
+        await supabase.auth.signOut();
+      }
+    } catch (err) {
+      console.warn('[AuthContext] Sign out error:', err.message);
+    } finally {
+      setUser(null);
+      setSession(null);
+      setProfile(null);
+      setRole(null);
+      localStorage.removeItem('agrinova_session_user');
+      localStorage.removeItem('agrinova_session_profile');
     }
-    setUser(null);
-    setProfile(null);
-    setRole(null);
-    localStorage.removeItem('agrinova_session_user');
-    localStorage.removeItem('agrinova_session_profile');
   };
 
   // Send custom SMTP Email OTP via backend
@@ -200,35 +201,29 @@ export const AuthProvider = ({ children }) => {
     return await authService.verifyEmailOtp(email, token);
   };
 
-  // Password reset request
+  // Password reset request via Supabase Auth
   const resetPassword = async (email) => {
     if (!isSupabaseConfigured) {
-      return { success: true, simulated: true };
+      throw new Error('Supabase configuration missing.');
     }
-    return await supabase.auth.resetPasswordForEmail(email, {
+    return await supabase.auth.resetPasswordForEmail(email.trim().toLowerCase(), {
       redirectTo: `${window.location.origin}/login`,
     });
   };
 
   const value = {
     user,
+    session,
     profile,
     role,
-    isAuthenticated: Boolean(user),
+    isAuthenticated: Boolean(user && session),
     loading,
     signIn,
     signOut,
     sendEmailOtp,
     verifyEmailOtp,
     resetPassword,
-    refreshProfile: () => user && fetchProfile(user.id),
-    setSessionProfile: (u, p) => {
-      setUser(u);
-      setProfile(p);
-      setRole(p.role);
-      localStorage.setItem('agrinova_session_user', JSON.stringify(u));
-      localStorage.setItem('agrinova_session_profile', JSON.stringify(p));
-    },
+    refreshProfile: () => (user ? fetchProfile(user.id) : Promise.resolve(null)),
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
