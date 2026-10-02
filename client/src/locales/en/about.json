@@ -1,0 +1,60 @@
+{
+  "hero": {
+    "badge": "Our Brand Story",
+    "title": "Building Better Connections Between Farms and Markets",
+    "subtitle": "AgriNova is a Smart Agriculture Marketplace and Decision Support System designed to connect farmers with buyers while providing tools that help agricultural communities make better-informed decisions."
+  },
+  "story": {
+    "title": "Our Story",
+    "p1": "For decades, traditional agricultural selling across India has depended on fragmented merchant networks, opaque pricing structures, and limited local market visibility. Farmers frequently produce high-quality harvests yet remain cut off from fair value realization due to layers of intermediaries.",
+    "p2": "AgriNova was founded to bridge this foundational gap. By uniting direct digital trading with hyperlocal satellite agro-meteorology and mandi price benchmarks, we empower farmers and commercial buyers to transact with mutual trust, clarity, and speed."
+  },
+  "mission": {
+    "title": "Our Mission",
+    "description": "To make agricultural trade more accessible, transparent, and data-informed for farmers and commercial buyers across India."
+  },
+  "vision": {
+    "title": "Our Vision",
+    "description": "A connected agricultural ecosystem where farmers can access wider regional markets and make smarter crop management decisions using useful digital tools."
+  },
+  "combines": {
+    "title": "What AgriNova Combines",
+    "subtitle": "An integrated digital infrastructure designed specifically for Indian agriculture.",
+    "items": [
+      { "title": "Agricultural Marketplace", "desc": "Direct crop discovery and negotiation without traditional middleman commission markups." },
+      { "title": "Hyperlocal Weather Intelligence", "desc": "Live satellite telemetry and agro-meteorological advisories powered by Open-Meteo." },
+      { "title": "Market Price Transparency", "desc": "Benchmark price indicators across regional APMC mandis to guide fair trade." },
+      { "title": "Direct Connections", "desc": "Direct communication between growers and verified wholesale purchasers." },
+      { "title": "Decision Support", "desc": "Actionable seasonal insights to optimize harvest timing and reduce post-harvest losses." },
+      { "title": "Digital Farmer Profiles", "desc": "Verified farmer credentials, crop catalogues, and geolocation-based provenance." },
+      { "title": "Commercial Buyer Discovery", "desc": "Bulk lot sourcing for processors, exporters, retailers, and food manufacturers." }
+    ]
+  },
+  "whoWeServe": {
+    "title": "Who We Serve",
+    "subtitle": "Connecting every essential stakeholder across the agricultural supply chain.",
+    "items": [
+      "Independent & Group Farmers",
+      "Agricultural Wholesalers",
+      "Modern Retailers & Supermarkets",
+      "Food Processing Industries",
+      "Commodity Distributors",
+      "Agricultural Exporters",
+      "Hotels, Caterers & Restaurants",
+      "Institutional Procurement Buyers"
+    ]
+  },
+  "principles": {
+    "title": "Our Core Principles",
+    "subtitle": "The foundational commitments guiding our technology and platform design.",
+    "items": [
+      { "title": "Transparency", "desc": "Fair visibility on prices, weights, quality parameters, and trading terms." },
+      { "title": "Accessibility", "desc": "Designed with multi-language support, mobile usability, and zero unnecessary complexity." },
+      { "title": "Trust", "desc": "Verified identities, secure OTP communication, and transparent reputations." },
+      { "title": "Technology with Purpose", "desc": "Useful, grounded digital tools built to solve genuine everyday farming challenges." },
+      { "title": "Sustainability", "desc": "Encouraging climate-resilient practices and optimal resource utilization." },
+      { "title": "Farmer Empowerment", "desc": "Equipping cultivators with market agency and actionable decision intelligence." },
+      { "title": "Data Responsibility", "desc": "Protecting user privacy and respecting agricultural data sovereignty." }
+    ]
+  }
+}

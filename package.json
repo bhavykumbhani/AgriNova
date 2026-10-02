@@ -1,0 +1,23 @@
+{
+  "name": "agrinova",
+  "version": "1.0.0",
+  "description": "AgriNova - Smart Agriculture Marketplace and Decision Support System",
+  "scripts": {
+    "dev": "npm --prefix client run dev",
+    "dev:all": "node -e \"const { spawn } = require('child_process'); spawn('npm', ['--prefix', 'client', 'run', 'dev'], { stdio: 'inherit', shell: true }); spawn('npm', ['--prefix', 'server', 'run', 'dev'], { stdio: 'inherit', shell: true });\"",
+    "build": "npm --prefix client run build",
+    "server": "npm --prefix server run dev",
+    "client": "npm --prefix client run dev"
+  },
+  "keywords": [
+    "agriculture",
+    "marketplace",
+    "decision-support",
+    "agritech",
+    "react",
+    "supabase",
+    "express"
+  ],
+  "author": "AgriNova Team",
+  "license": "ISC"
+}

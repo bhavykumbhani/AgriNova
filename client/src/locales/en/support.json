@@ -1,0 +1,35 @@
+{
+  "hero": {
+    "badge": "Help & Resources",
+    "title": "AgriNova Support",
+    "subtitle": "Need help? Find answers, explore guides or contact the AgriNova support team."
+  },
+  "search": {
+    "placeholder": "Search support topics..."
+  },
+  "categories": [
+    { "id": "getting-started", "title": "Getting Started", "desc": "Account creation basics, onboarding checklist, and role overview." },
+    { "id": "farmer-reg", "title": "Farmer Registration", "desc": "Step-by-step guidance on OTP verification, location setup, and farm profiles." },
+    { "id": "buyer-reg", "title": "Buyer Registration", "desc": "Business onboarding, company credentials, GSTIN requirements, and sourcing." },
+    { "id": "account-login", "title": "Account & Login", "desc": "Password resets, credential security, session management, and language settings." },
+    { "id": "marketplace", "title": "Marketplace", "desc": "Discovering produce, searching lots, filtering harvests, and understanding verified badges." },
+    { "id": "crop-listings", "title": "Crop Listings", "desc": "Listing harvest lots, setting expected prices, lot quantities, and harvest availability." },
+    { "id": "weather-market", "title": "Weather & Market Data", "desc": "How GPS agro-meteorology, satellite advisories, and APMC mandi benchmarks work." },
+    { "id": "privacy-security", "title": "Privacy & Security", "desc": "Data protection, OTP handling, profile visibility, and contact privacy." },
+    { "id": "technical-issues", "title": "Technical Issues", "desc": "Troubleshooting browser compatibility, GPS permissions, and connection issues." }
+  ],
+  "quickLinks": {
+    "title": "Quick Navigation",
+    "faq": "Frequently Asked Questions",
+    "faqDesc": "Common inquiries regarding payments, trading, and platform policies.",
+    "contact": "Contact Support Team",
+    "contactDesc": "Send a direct message to our support and customer service desk.",
+    "tips": "Farming Tips & Guides",
+    "tipsDesc": "Practical agronomic resources for harvest planning and post-harvest care."
+  },
+  "cta": {
+    "title": "Still need help?",
+    "subtitle": "Our dedicated support team is available to assist farmers, merchants, and agribusinesses.",
+    "btn": "Contact Support"
+  }
+}

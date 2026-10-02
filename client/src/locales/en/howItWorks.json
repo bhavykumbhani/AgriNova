@@ -1,0 +1,91 @@
+{
+  "hero": {
+    "badge": "Simple & Transparent",
+    "title": "How AgriNova Works",
+    "subtitle": "From farm to market, AgriNova creates a simple and transparent way for farmers and buyers to connect directly."
+  },
+  "tabs": {
+    "farmer": "For Farmers",
+    "buyer": "For Buyers"
+  },
+  "farmerSteps": [
+    {
+      "step": 1,
+      "title": "Create Your Farmer Account",
+      "description": "Sign up with your mobile number and verified email OTP. Set up your digital farming identity in minutes.",
+      "tag": "Verification"
+    },
+    {
+      "step": 2,
+      "title": "Add Farm Information",
+      "description": "Specify your farm location, land area, primary crops, and harvest cycles for accurate buyer matching.",
+      "tag": "Farm Profile"
+    },
+    {
+      "step": 3,
+      "title": "List Your Produce",
+      "description": "Publish available produce specifying crop variety, quantity, quality grade, expected price, and dispatch dates.",
+      "tag": "Listing"
+    },
+    {
+      "step": 4,
+      "title": "Receive Buyer Interest",
+      "description": "Get direct trade inquiries, bids, and purchase offers from verified merchants and institutional bulk buyers.",
+      "tag": "Discovery"
+    },
+    {
+      "step": 5,
+      "title": "Connect & Negotiate",
+      "description": "Communicate directly with interested buyers to discuss delivery terms, logistics, and fair market pricing.",
+      "tag": "Direct Chat"
+    },
+    {
+      "step": 6,
+      "title": "Finalize Trade & Deliver",
+      "description": "Confirm the order agreement, schedule farm pickup or mandi delivery, and settle transactions transparently.",
+      "tag": "Settlement"
+    }
+  ],
+  "buyerSteps": [
+    {
+      "step": 1,
+      "title": "Register as Buyer",
+      "description": "Complete business registration with company information, verified email OTP, and optional GSTIN credentials.",
+      "tag": "Onboarding"
+    },
+    {
+      "step": 2,
+      "title": "Complete Business Profile",
+      "description": "Select your trade category—wholesaler, food processor, exporter, retailer, or institutional purchaser.",
+      "tag": "Trade Identity"
+    },
+    {
+      "step": 3,
+      "title": "Browse Agricultural Marketplace",
+      "description": "Explore available fresh harvest listings directly from registered Indian farmers across nearby states and regions.",
+      "tag": "Marketplace"
+    },
+    {
+      "step": 4,
+      "title": "Search & Filter Produce",
+      "description": "Filter by crop type, regional mandi benchmarks, lot volume, harvest freshness, and verified farmer badges.",
+      "tag": "Precision Search"
+    },
+    {
+      "step": 5,
+      "title": "Connect with Farmer",
+      "description": "Initiate direct trade discussions without middlemen or commission agent markups.",
+      "tag": "Transparent Bridge"
+    },
+    {
+      "step": 6,
+      "title": "Negotiate and Purchase",
+      "description": "Agree on terms, finalize lot quantity and logistics, and build long-term farm-to-business sourcing relationships.",
+      "tag": "Direct Sourcing"
+    }
+  ],
+  "cta": {
+    "title": "Start Sourcing or Selling Today",
+    "subtitle": "Join India's modern agricultural trading network and unlock direct market connections."
+  }
+}

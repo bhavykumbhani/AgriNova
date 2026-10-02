@@ -1,0 +1,45 @@
+{
+  "hero": {
+    "badge": "Get in Touch",
+    "title": "Contact AgriNova",
+    "subtitle": "Have a question, suggestion or support request? We'd like to hear from you."
+  },
+  "form": {
+    "firstName": "First Name",
+    "firstNamePlaceholder": "e.g. Rahul",
+    "lastName": "Last Name",
+    "lastNamePlaceholder": "e.g. Sharma",
+    "email": "Email Address",
+    "emailPlaceholder": "e.g. rahul@example.com",
+    "phone": "Phone Number (Optional)",
+    "phonePlaceholder": "e.g. 9876543210",
+    "topic": "Topic / Inquiry Subject",
+    "selectTopic": "Select a topic...",
+    "topics": {
+      "general": "General Inquiry",
+      "account": "Account Support",
+      "farmer": "Farmer Support",
+      "buyer": "Buyer Support",
+      "technical": "Technical Issue",
+      "partnership": "Business Partnership",
+      "feedback": "Feedback & Suggestions",
+      "other": "Other"
+    },
+    "message": "Your Message",
+    "messagePlaceholder": "Tell us how we can assist you with your farming or buying inquiries...",
+    "submit": "Send Message",
+    "sending": "Sending Message...",
+    "successTitle": "Message Sent Successfully!",
+    "successMessage": "Thank you for reaching out to AgriNova. Our support desk has received your message and will respond within 24 business hours.",
+    "sendAnother": "Send Another Message"
+  },
+  "info": {
+    "title": "Direct Contact Information",
+    "subtitle": "Reach our operations desk and regional support centers.",
+    "supportEmail": "Support Email",
+    "supportHours": "Support Hours",
+    "hoursValue": "Monday – Saturday: 8:00 AM – 8:00 PM IST",
+    "location": "Headquarters",
+    "locationValue": "AgriNova Technology Hub, Pune, Maharashtra, India"
+  }
+}

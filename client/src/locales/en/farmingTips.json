@@ -1,0 +1,84 @@
+{
+  "hero": {
+    "badge": "Agronomic Knowledge Hub",
+    "title": "Farming Tips & Resources",
+    "subtitle": "Practical agricultural information to support smarter everyday farming decisions, crop protection, and post-harvest value."
+  },
+  "categories": {
+    "all": "All Tips & Guides",
+    "market": "Market Preparation",
+    "postHarvest": "Post-Harvest Care",
+    "soil": "Soil Health",
+    "weather": "Weather Preparedness",
+    "irrigation": "Smart Irrigation",
+    "storage": "Crop Storage",
+    "sustainable": "Sustainable Farming"
+  },
+  "articles": [
+    {
+      "id": "market-prep",
+      "category": "market",
+      "title": "Preparing Crops for Bulk Market Sale",
+      "summary": "Proper grading, sorting, and cleaning can raise realized prices by 15-25% when negotiating with wholesale merchants.",
+      "readTime": "4 min read",
+      "tags": ["Grading", "Wholesale", "Profitability"]
+    },
+    {
+      "id": "post-harvest-loss",
+      "category": "postHarvest",
+      "title": "Reducing Post-Harvest Losses in Grains and Pulses",
+      "summary": "Key steps to maintain optimal moisture levels and reduce field-to-bag spillage and pest vulnerability.",
+      "readTime": "5 min read",
+      "tags": ["Storage", "Moisture Control", "Protection"]
+    },
+    {
+      "id": "soil-health",
+      "category": "soil",
+      "title": "Basic Soil Health Practices Between Cropping Seasons",
+      "summary": "Incorporating green manure, crop rotation, and balanced organic compost to restore microbial activity and soil structure.",
+      "readTime": "6 min read",
+      "tags": ["Soil Testing", "Green Manure", "Nutrients"]
+    },
+    {
+      "id": "weather-planning",
+      "category": "weather",
+      "title": "Using Weather Forecasts for Farm Planning",
+      "summary": "How monitoring wind speed, humidity, and rainfall probability prevents fertilizer runoff and spraying wastage.",
+      "readTime": "4 min read",
+      "tags": ["Satellite Telemetry", "Advisories", "Rainfall"]
+    },
+    {
+      "id": "smart-irrigation",
+      "category": "irrigation",
+      "title": "Smart Irrigation Practices for Water Conservation",
+      "summary": "Implementing drip scheduling, soil moisture testing, and mulching to maximize yield per cubic meter of water.",
+      "readTime": "5 min read",
+      "tags": ["Drip Irrigation", "Mulching", "Water Efficiency"]
+    },
+    {
+      "id": "crop-storage",
+      "category": "storage",
+      "title": "Crop Storage Basics for Farm-Level Preservation",
+      "summary": "Ventilation, elevation off damp floors, and hermetic grain bags to preserve grain viability without harmful chemical residues.",
+      "readTime": "4 min read",
+      "tags": ["Hermetic Storage", "Ventilation", "Quality"]
+    },
+    {
+      "id": "market-demand",
+      "category": "market",
+      "title": "Understanding Seasonal Market Demand Cycles",
+      "summary": "Aligning harvesting and staggered sowing with historical mandi benchmark peaks to capture peak season prices.",
+      "readTime": "6 min read",
+      "tags": ["APMC Mandi", "Seasonal Cycles", "Price Timing"]
+    },
+    {
+      "id": "harvest-timing",
+      "category": "postHarvest",
+      "title": "Planning Harvest Timing for Optimal Shelf Life",
+      "summary": "Harvesting at physiological maturity rather than over-ripeness to maintain crispness and transit resilience for distant markets.",
+      "readTime": "5 min read",
+      "tags": ["Maturity Index", "Transit Life", "Perishables"]
+    }
+  ],
+  "disclaimer": "The agronomic advice provided above represents general educational guidance. Farmers should consult local Krishi Vigyan Kendras (KVK) or certified agricultural extension officers for region-specific agronomic prescriptions."
+}

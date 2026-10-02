@@ -1,0 +1,67 @@
+{
+  "brand": {
+    "name": "AgriNova",
+    "tagline": "Smart Agriculture Marketplace and Decision Support System",
+    "motto": "Connecting Farmers. Empowering Markets. Smarter Agriculture."
+  },
+  "nav": {
+    "home": "Home",
+    "marketplace": "Marketplace",
+    "howItWorks": "How It Works",
+    "about": "About",
+    "support": "Support",
+    "contact": "Contact",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "dashboard": "Dashboard",
+    "farmerDashboard": "Farmer Dashboard",
+    "buyerDashboard": "Buyer Dashboard",
+    "logout": "Logout",
+    "farmer": "Farmer",
+    "buyer": "Buyer"
+  },
+  "theme": {
+    "light": "Light Mode",
+    "dark": "Dark Mode",
+    "toggle": "Toggle Theme"
+  },
+  "language": {
+    "select": "Language",
+    "en": "English",
+    "hi": "हिन्दी",
+    "gu": "ગુજરાતી"
+  },
+  "footer": {
+    "tagline": "Smart Agriculture Marketplace and Decision Support System",
+    "description": "Connecting Indian farmers directly with verified buyers while providing real-time agro-meteorological satellite telemetry and transparent mandi market intelligence.",
+    "marketplace": "Marketplace",
+    "resources": "Resources",
+    "company": "Company",
+    "legal": "Legal",
+    "howItWorks": "How It Works",
+    "farmerReg": "Farmer Registration",
+    "buyerReg": "Buyer Registration",
+    "faq": "FAQ",
+    "farmingTips": "Farming Tips",
+    "support": "Support",
+    "contact": "Contact",
+    "about": "About",
+    "ourMission": "Our Mission",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "followUs": "Follow Us",
+    "copyright": "© 2026 AgriNova. All rights reserved."
+  },
+  "actions": {
+    "back": "Back",
+    "next": "Next Step",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "save": "Save",
+    "loading": "Please wait...",
+    "viewDetails": "View Details",
+    "readMore": "Read More",
+    "clearFilters": "Clear Filters",
+    "search": "Search"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "hero": {
+    "badge": "AgriNova Marketplace",
+    "title": "Agricultural Marketplace",
+    "subtitle": "Discover fresh agricultural produce directly from farmers and explore opportunities across local and regional markets."
+  },
+  "search": {
+    "placeholder": "Search crops, products or locations...",
+    "category": "Category",
+    "allCategories": "All Categories",
+    "location": "Location",
+    "allLocations": "All Locations",
+    "sortBy": "Sort By",
+    "sortNewest": "Newest Harvest",
+    "sortPriceAsc": "Price: Low to High",
+    "sortPriceDesc": "Price: High to Low",
+    "sortQuantity": "Largest Quantity",
+    "priceRange": "Price Range",
+    "availability": "Availability",
+    "allAvailability": "Any Availability",
+    "readyNow": "Ready for Immediate Dispatch",
+    "upcoming": "Upcoming Harvest (7-14 Days)"
+  },
+  "categories": {
+    "all": "All Crops",
+    "grains": "Grains & Cereals",
+    "vegetables": "Fresh Vegetables",
+    "fruits": "Seasonal Fruits",
+    "pulses": "Pulses & Lentils",
+    "oilseeds": "Oilseeds",
+    "spices": "Spices & Condiments",
+    "cashCrops": "Cash Crops"
+  },
+  "empty": {
+    "title": "No listings available yet",
+    "message": "Farmers are currently preparing and harvesting seasonal produce. Be the first farmer to list your fresh harvest or check back shortly.",
+    "action": "Clear Filters"
+  },
+  "card": {
+    "verified": "Verified Farmer",
+    "expectedPrice": "Expected Price",
+    "quantity": "Quantity",
+    "availableFrom": "Available From",
+    "viewDetails": "View Details"
+  },
+  "cta": {
+    "farmerTitle": "Are you a farmer? List your crops on AgriNova.",
+    "farmerSubtitle": "Reach bulk institutional buyers, wholesalers, and food processors directly. Eliminate intermediary commissions.",
+    "farmerBtn": "Start Selling",
+    "buyerTitle": "Looking for agricultural produce?",
+    "buyerSubtitle": "Create a buyer account to connect directly with verified growers, negotiate quantities, and schedule reliable logistics.",
+    "buyerBtn": "Register as Buyer"
+  }
+}

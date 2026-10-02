@@ -1,0 +1,105 @@
+{
+  "hero": {
+    "badge": "Common Questions",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find clear answers to common questions about AgriNova's marketplace, weather telemetry, accounts, and policies."
+  },
+  "categories": {
+    "all": "All Questions",
+    "general": "Getting Started",
+    "farmer": "Farmer Accounts",
+    "buyer": "Buyer Accounts",
+    "marketplace": "Marketplace",
+    "pricing": "Pricing & Payments",
+    "weather": "Weather & Market Data",
+    "security": "Privacy & Security",
+    "support": "Support & Help"
+  },
+  "items": [
+    {
+      "category": "general",
+      "question": "What is AgriNova?",
+      "answer": "AgriNova is a digital agriculture marketplace and decision-support system connecting Indian farmers directly with commercial crop buyers, providing real-time agro-meteorological forecasts and transparent mandi price indicators."
+    },
+    {
+      "category": "general",
+      "question": "Who can use AgriNova?",
+      "answer": "AgriNova is built for individual farmers, farmer producer organizations (FPOs), wholesale merchants, food processing plants, modern retailers, and institutional agricultural purchasers across India."
+    },
+    {
+      "category": "farmer",
+      "question": "How do farmers register?",
+      "answer": "Farmers can register by selecting 'Register as Farmer' on our portal, verifying their email address with a 6-digit OTP, providing their farm location (via GPS or city search), and entering their primary crops."
+    },
+    {
+      "category": "buyer",
+      "question": "How do buyers register?",
+      "answer": "Buyers register under 'Register as Buyer' with verified email OTP, business details (wholesaler, processor, retailer, exporter), operating city, and valid 15-character GSTIN number."
+    },
+    {
+      "category": "farmer",
+      "question": "Is email verification required?",
+      "answer": "Yes. To protect farmers and merchants from fraudulent accounts, all users must complete a 6-digit email OTP verification before creating their AgriNova account."
+    },
+    {
+      "category": "marketplace",
+      "question": "How can I sell crops?",
+      "answer": "Once registered, farmers can list their harvest lot specifying crop variety, quantity in quintals or tonnes, expected price, quality grade, harvest readiness date, and farm pickup location."
+    },
+    {
+      "category": "marketplace",
+      "question": "How do buyers find crops?",
+      "answer": "Buyers browse the AgriNova Marketplace and filter by crop category, lot volume, location/state, price range, and verified farmer badges to find exactly what they need."
+    },
+    {
+      "category": "marketplace",
+      "question": "Does AgriNova purchase crops itself?",
+      "answer": "No. AgriNova is an open platform and direct digital bridge. We do not purchase or warehouse crops ourselves; we enable farmers and buyers to transact directly without intermediaries."
+    },
+    {
+      "category": "pricing",
+      "question": "Who decides the crop price?",
+      "answer": "Farmers set their own expected lot prices, and buyers can negotiate terms directly. AgriNova provides regional APMC mandi price benchmarks as reference data to support fair market outcomes."
+    },
+    {
+      "category": "general",
+      "question": "How does AgriNova reduce dependence on middlemen?",
+      "answer": "By providing direct farmer-to-buyer communication, transparent benchmark prices, and verified identities, farmers can sell outside restrictive commission agent cartels and retain higher margins."
+    },
+    {
+      "category": "weather",
+      "question": "How does weather information work?",
+      "answer": "We fetch live agro-meteorological satellite telemetry via Open-Meteo based on your approximate GPS coordinates or selected district, offering 5-day forecasts, rain probability, wind speeds, and agricultural weather advisories."
+    },
+    {
+      "category": "security",
+      "question": "Does AgriNova track my location?",
+      "answer": "No. AgriNova only requests browser GPS coordinates upon your explicit permission to fetch localized weather or pin your farm location. We do not engage in background continuous location tracking."
+    },
+    {
+      "category": "general",
+      "question": "Can I use AgriNova in Gujarati?",
+      "answer": "Yes! AgriNova provides full native support for English, Hindi (हिन्दी), and Gujarati (ગુજરાતી). You can toggle languages at any time from the navigation bar."
+    },
+    {
+      "category": "support",
+      "question": "How do I reset my password?",
+      "answer": "Click 'Forgot Password' on the login screen, enter your registered email address, and follow the password reset link sent to your inbox."
+    },
+    {
+      "category": "support",
+      "question": "How can I contact support?",
+      "answer": "You can reach our help desk via the Contact Page (/contact), through our support categories (/support), or by emailing darshakjikadra4@gmail.com."
+    },
+    {
+      "category": "security",
+      "question": "Is my information secure?",
+      "answer": "Yes. AgriNova uses industry-standard encryption, SHA-256 OTP hashing, PostgreSQL Row Level Security (RLS), and zero frontend exposure of sensitive server credentials."
+    }
+  ],
+  "cta": {
+    "title": "Still have questions?",
+    "subtitle": "Can't find the answer you're looking for? Reach out directly to our customer support team.",
+    "btn": "Contact Support"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "terms": {
+    "title": "Terms & Conditions",
+    "subtitle": "Please read these Terms of Service carefully before utilizing the AgriNova platform.",
+    "lastUpdated": "Last Updated: October 2026",
+    "disclaimerNotice": "Important Notice: These terms represent platform policy documentation and should be reviewed by qualified legal counsel prior to full commercial scaling.",
+    "tocTitle": "Table of Contents",
+    "sections": [
+      { "id": "intro", "num": "1", "title": "Introduction", "content": "Welcome to AgriNova. These Terms & Conditions govern your access to and usage of the AgriNova website, digital agricultural marketplace, agro-meteorological advisory tools, and related decision-support services." },
+      { "id": "acceptance", "num": "2", "title": "Acceptance of Terms", "content": "By accessing, browsing, registering for, or using AgriNova, you acknowledge that you have read, understood, and agreed to be legally bound by these terms." },
+      { "id": "eligibility", "num": "3", "title": "Eligibility", "content": "You must be at least 18 years of age and legally competent under Indian law to enter into binding agreements to create an account or trade on AgriNova." },
+      { "id": "accounts", "num": "4", "title": "User Accounts", "content": "You are responsible for maintaining the confidentiality of your account credentials, passwords, and OTP verifications. You agree to notify AgriNova immediately of any unauthorized access." },
+      { "id": "farmer-resp", "num": "5", "title": "Farmer Responsibilities", "content": "Farmers must provide accurate details regarding crop variety, quantity, harvest dates, and quality grades. Misrepresenting produce condition is strictly prohibited." },
+      { "id": "buyer-resp", "num": "6", "title": "Buyer Responsibilities", "content": "Buyers must represent verified commercial entities or genuine purchasing capacity, honor agreed negotiation bids, and coordinate timely payments and logistics." },
+      { "id": "listings", "num": "7", "title": "Marketplace Listings", "content": "All crop listings must accurately reflect genuine agricultural commodities grown or legally owned by the listing user." },
+      { "id": "accuracy", "num": "8", "title": "Accuracy of Information", "content": "Users represent and warrant that all data provided during registration, crop listing, and trade messaging is complete and truthful." },
+      { "id": "negotiation", "num": "9", "title": "Prices and Negotiation", "content": "Prices displayed on listings reflect expected benchmarks set by farmers. AgriNova does not dictate transaction prices; final amounts are mutually agreed between transacting parties." },
+      { "id": "transactions", "num": "10", "title": "Transactions", "content": "AgriNova acts as an informational matchmaker and communication bridge. Sales agreements are formed directly between farmers and buyers." },
+      { "id": "payments", "num": "11", "title": "Payments", "content": "Parties agree to settle payments according to negotiated commercial terms. AgriNova does not hold agricultural escrow unless explicitly subscribed to an integrated payment guarantee service." },
+      { "id": "delivery", "num": "12", "title": "Delivery and Logistics", "content": "Arrangement for crop loading, transport, inspection, and weighing is the mutual responsibility of transacting parties unless verified logistics partners are engaged." },
+      { "id": "prohibited", "num": "13", "title": "Prohibited Activities", "content": "Users shall not post fictitious crops, engage in price manipulation, harass other users, or attempt to circumvent platform security controls." },
+      { "id": "availability", "num": "14", "title": "Platform Availability", "content": "While we strive for 99.9% uptime, AgriNova does not warrant that services will be uninterrupted or error-free at all times." },
+      { "id": "third-party", "num": "15", "title": "Third-Party Services", "content": "Weather telemetry is sourced via Open-Meteo and mapping via OpenStreetMap. AgriNova is not liable for upstream third-party downtime." },
+      { "id": "weather-disclaimer", "num": "16", "title": "Weather & Market Information Disclaimer", "content": "Hyperlocal forecasts and mandi price benchmarks are provided for informational decision support only. Agricultural decisions remain the sole responsibility of the user." },
+      { "id": "decision-disclaimer", "num": "17", "title": "Decision Support Disclaimer", "content": "Automated agricultural suggestions do not substitute for professional regional agronomist advice or laboratory soil testing." },
+      { "id": "ip", "num": "18", "title": "Intellectual Property", "content": "All software, branding, UI designs, trademarks, and documentation of AgriNova are the exclusive intellectual property of AgriNova." },
+      { "id": "suspension", "num": "19", "title": "Account Suspension", "content": "AgriNova reserves the right to suspend or terminate accounts that breach these terms, fail OTP validation, or engage in suspicious activity." },
+      { "id": "liability", "num": "20", "title": "Limitation of Liability", "content": "To the maximum extent permitted by applicable Indian law, AgriNova shall not be liable for indirect, incidental, or consequential crop damages or commercial losses." },
+      { "id": "changes", "num": "21", "title": "Changes to Terms", "content": "We may update these terms periodically. Continued platform usage following notice of revisions constitutes acceptance of modified terms." },
+      { "id": "contact-terms", "num": "22", "title": "Contact Information", "content": "Inquiries regarding legal terms should be directed to legal@agrinova.in or via the Contact Page (/contact)." }
+    ]
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "subtitle": "How AgriNova collects, uses, protects, and handles your personal and farm data.",
+    "lastUpdated": "Last Updated: October 2026",
+    "sections": [
+      {
+        "id": "collect",
+        "title": "Information We Collect",
+        "items": [
+          { "sub": "Account Credentials", "text": "Names, mobile phone numbers, email addresses, and encrypted password hashes." },
+          { "sub": "Farmer Profile Data", "text": "Farm names, total cultivated acreage, land area units, and cultivated crop catalogues." },
+          { "sub": "Buyer Business Data", "text": "Company names, commercial trade classifications, business addresses, and GSTIN identifiers." },
+          { "sub": "Farm Geolocation", "text": "Farm coordinates specifically saved by farmers during onboarding to display harvest provenance." },
+          { "sub": "Temporary Weather Location", "text": "Homepage GPS telemetry is utilized on-demand to fetch localized satellite weather. Weather coordinates are NOT permanently logged or tracked." }
+        ]
+      },
+      {
+        "id": "use",
+        "title": "How Your Data Is Used",
+        "items": [
+          { "sub": "Core Authentication", "text": "Managing verified sessions, 6-digit OTP verification, and password resets." },
+          { "sub": "Marketplace Connectivity", "text": "Matching harvest listings with regional buyers and presenting verified farmer badges." },
+          { "sub": "Local Weather Advisories", "text": "Delivering 5-day rain, wind, and agro-meteorological advisories." },
+          { "sub": "Preferences", "text": "Saving your selected language (English, Hindi, Gujarati) and theme (Light, Dark) in browser local storage." }
+        ]
+      },
+      {
+        "id": "security",
+        "title": "Data Security & Retention",
+        "content": "AgriNova implements TLS 1.3 in transit, SHA-256 OTP hashing with cryptographic salts, and PostgreSQL Row Level Security (RLS). Sensitive backend credentials and SMTP passwords never reach the client."
+      },
+      {
+        "id": "rights",
+        "title": "Your Rights & Controls",
+        "content": "You have the right to inspect, edit, or request erasure of your personal profile data at any time through your dashboard settings or by contacting our Data Protection Desk at privacy@agrinova.in."
+      }
+    ]
+  }
+}
