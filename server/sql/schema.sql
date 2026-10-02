@@ -116,8 +116,14 @@ ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.farmer_profiles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.farmer_crops ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.buyer_profiles ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.crops ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.market_prices ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.email_verification_otps ENABLE ROW LEVEL SECURITY;
+
+-- 0. Standard Crops: Public read-only
+CREATE POLICY "Public can view standard crops directory"
+  ON public.crops FOR SELECT
+  USING (true);
 
 -- 1. Profiles: Users can read their own profile, public can read verified info
 CREATE POLICY "Users can view own profile"
